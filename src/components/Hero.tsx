@@ -1,7 +1,14 @@
 import React from 'react';
 import { MapPin, Calendar, Globe, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleCreateProfile = () => {
+    navigate('/register');
+  };
+
   return (
     <div className="relative bg-gradient-to-r from-terracotta-600 to-primary-600 text-white">
       {/* Background pattern */}
@@ -19,14 +26,23 @@ const Hero: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn btn-primary">
+              <button 
+                className="btn btn-primary"
+                onClick={handleCreateProfile}
+              >
                 Criar Perfil
                 <ChevronRight size={20} />
               </button>
-              <button className="btn btn-outline">
+              <button 
+                className="btn btn-outline"
+                onClick={() => window.location.href = '#pricing'}
+              >
                 Ver Vagas
               </button>
-              <button className="btn btn-outline">
+              <button 
+                className="btn btn-outline"
+                onClick={() => window.location.href = '#how-it-works'}
+              >
                 Como Funciona
               </button>
             </div>
